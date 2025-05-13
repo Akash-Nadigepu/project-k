@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: site-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: site-service
+  template:
+    metadata:
+      labels:
+        app: site-service
+    spec:
+      containers:
+        - name: site-service
+          image: akash6637.azurecr.io/site-service:v1.0
+          ports:
+            - containerPort: 8082
+          env:
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: azuresql-secret
+                  key: DB_URL
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: azuresql-secret
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: azuresql-secret
+                  key: DB_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: site-service
+spec:
+  selector:
+    app: site-service
+  ports:
+    - port: 80
+      targetPort: 8082
