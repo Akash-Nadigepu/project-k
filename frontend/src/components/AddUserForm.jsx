@@ -27,7 +27,7 @@ const AddUserForm = ({ onUserAdded }) => {
     setError('');
 
     try {
-      const response = await axios.post('http://4.156.15.183/api/users', user);
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/users`, user);
       onUserAdded(response.data);
       setUser({ name: '', email: '', phone: '', position: '' });
     } catch (err) {

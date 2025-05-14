@@ -44,4 +44,4 @@ spec:
   ports:
     - port: 80
       targetPort: 8081
-  type: LoadBalance
+  type: LoadBalancer

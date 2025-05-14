@@ -1,4 +1,4 @@
-const API_BASE = "http://4.156.15.183"; // your user-service LoadBalancer IP
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 export const fetchData = async () => {
   const res = await fetch(`${API_BASE}/api/users`);

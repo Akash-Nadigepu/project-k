@@ -11,7 +11,7 @@ const App = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://4.156.15.183/api/users');
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/users`);
       setUsers(response.data);
     } catch (err) {
       console.error('Failed to fetch users:', err);
