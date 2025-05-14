@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: frontend
 spec:
-  replicas: 2  # Adjust the replica count as needed
+  replicas: 1  # Adjust the replica count as needed
   selector:
     matchLabels:
       app: frontend
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: akash6637.azurecr.io/frontend:v1.2  # The frontend container image
+          image: akash6637.azurecr.io/frontend:v1.4  # The frontend container image
           ports:
             - containerPort: 80  # Expose the frontend on port 80
           env:

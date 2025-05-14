@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: user-service
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: user-service
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: user-service
-          image: akash6637.azurecr.io/user-service:v1.2
+          image: akash6637.azurecr.io/user-service:v1.4
           ports:
             - containerPort: 80
           env:

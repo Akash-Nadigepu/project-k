@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: site-service
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: site-service
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: site-service
-          image: akash6637.azurecr.io/site-service:v1.2
+          image: akash6637.azurecr.io/site-service:v1.4
           ports:
             - containerPort: 8082
           env:
