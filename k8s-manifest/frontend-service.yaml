@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 2  # Adjust the replica count as needed
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: akash6637.azurecr.io/frontend:v1.1  # The frontend container image
+          ports:
+            - containerPort: 80  # Expose the frontend on port 80
+          env:
+            - name: REACT_APP_USER_SERVICE_URL
+              value: "http://user-service:8081"  # URL for user service (internal communication)
+            - name: REACT_APP_SITE_SERVICE_URL
+              value: "http://site-service:8082"  # URL for site service (internal communication)
+            - name: REACT_APP_ORG_SERVICE_URL
+              value: "http://organization-service:8083"  # URL for organization service (internal communication)
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  selector:
+    app: frontend
+  ports:
+    - port: 80  # The port exposed by the frontend service
+      targetPort: 80  # The container port
+  type: LoadBalancer  # Adjust to LoadBalancer if you want external access
+---

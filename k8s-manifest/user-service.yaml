@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: user-service
-          image: akash6637.azurecr.io/user-service:v1.0
+          image: akash6637.azurecr.io/user-service:v1.1
           ports:
             - containerPort: 8081
           env:
@@ -44,3 +44,4 @@ spec:
   ports:
     - port: 80
       targetPort: 8081
+  type: LoadBalance
