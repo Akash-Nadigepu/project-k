@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: organization-service
-          image: akash6637.azurecr.io/organization-service:v1.1
+          image: akash6637.azurecr.io/organization-service:v1.2
           ports:
             - containerPort: 8083
           env:

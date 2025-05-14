@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: site-service
-          image: akash6637.azurecr.io/site-service:v1.1
+          image: akash6637.azurecr.io/site-service:v1.2
           ports:
             - containerPort: 8082
           env:

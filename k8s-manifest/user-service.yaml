@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: user-service
-          image: akash6637.azurecr.io/user-service:v1.1
+          image: akash6637.azurecr.io/user-service:v1.2
           ports:
             - containerPort: 8081
           env:
