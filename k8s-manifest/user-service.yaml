@@ -16,7 +16,7 @@ spec:
         - name: user-service
           image: akash6637.azurecr.io/user-service:v1.2
           ports:
-            - containerPort: 8081
+            - containerPort: 80
           env:
             - name: DB_URL
               valueFrom:
@@ -43,5 +43,5 @@ spec:
     app: user-service
   ports:
     - port: 80
-      targetPort: 8081
+      targetPort: 80
   type: LoadBalancer
