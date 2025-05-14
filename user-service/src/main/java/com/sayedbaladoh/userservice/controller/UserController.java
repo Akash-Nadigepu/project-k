@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sayedbaladoh.userservice.model.User;
 import com.sayedbaladoh.userservice.service.UserService;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 /**
  * Users Controller
  * 
  * @author SayedBaladoh
  *
  */
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
